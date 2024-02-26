@@ -1,5 +1,6 @@
 package generation.com.BackendYumYum.Controller;
 
+import generation.com.BackendYumYum.DTO.CartDTO;
 import generation.com.BackendYumYum.Model.Cart;
 import generation.com.BackendYumYum.Service.CartService;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +24,7 @@ public class CartController {
     }
 
     @GetMapping
-    public List<Cart> getAllCarts (){
+    public List<CartDTO> getAllCarts (){
         return cartService.listCarts();
     }
 

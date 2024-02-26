@@ -5,14 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class ProductDTO {
+import java.util.List;
 
-        private Long idproducts;
-        private String name;
-        private double price;
-        private String url_img;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class UserDTO {
+
+    private Long idusers;
+    private String name;
+    private String phone;
+    private String email;
 }

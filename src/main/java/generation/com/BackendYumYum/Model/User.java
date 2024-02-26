@@ -32,6 +32,9 @@ public class User {
     @Column
     private String password;
 
+    @Column
+    private String role;
+
     @OneToMany(cascade = CascadeType.ALL , mappedBy = "user")
     @JsonIgnore
     private List<Cart> carts;

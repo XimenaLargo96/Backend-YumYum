@@ -2,7 +2,7 @@ package generation.com.BackendYumYum.Controller;
 
 import generation.com.BackendYumYum.DTO.CartDTO;
 import generation.com.BackendYumYum.Model.Cart;
-import generation.com.BackendYumYum.Service.CartService;
+import generation.com.BackendYumYum.Service.Impl.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

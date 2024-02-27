@@ -1,7 +1,7 @@
 package generation.com.BackendYumYum.Controller;
 
 import generation.com.BackendYumYum.Model.Product;
-import generation.com.BackendYumYum.Service.ProductService;
+import generation.com.BackendYumYum.Service.Impl.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

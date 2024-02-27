@@ -1,7 +1,7 @@
 package generation.com.BackendYumYum.Controller;
 
 import generation.com.BackendYumYum.Model.Category;
-import generation.com.BackendYumYum.Service.CategoryService;
+import generation.com.BackendYumYum.Service.Impl.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

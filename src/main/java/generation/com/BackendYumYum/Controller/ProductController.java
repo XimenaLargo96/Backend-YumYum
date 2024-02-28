@@ -1,7 +1,8 @@
 package generation.com.BackendYumYum.Controller;
 
+import generation.com.BackendYumYum.DTO.ProductDTO;
 import generation.com.BackendYumYum.Model.Product;
-import generation.com.BackendYumYum.Service.Impl.ProductService;
+import generation.com.BackendYumYum.Service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,17 +19,17 @@ public class ProductController {
     private final ProductService productService;
 
     @PostMapping("/save")
-    public ResponseEntity<Product> saveProduct(@RequestBody Product product){
+    public ResponseEntity<ProductDTO> saveProduct(@RequestBody Product product){
         return ResponseEntity.ok( productService.createProduct(product));
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> getAllProducts(){
+    public ResponseEntity<List<ProductDTO>> getAllProducts(){
         return ResponseEntity.ok(productService.listProducts());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Product>> getProductById(@PathVariable Long id) {
+    public ResponseEntity<Optional<ProductDTO>> getProductById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.findProductById(id));
     }
 

@@ -44,6 +44,5 @@ public class Product {
     Category category;
 
     @OneToMany(cascade = CascadeType.ALL , mappedBy = "product")
-    @JsonIgnore
     private List<Cart> carts;
 }

@@ -1,7 +1,8 @@
 package generation.com.BackendYumYum.Controller;
 
+import generation.com.BackendYumYum.DTO.CategoryDTO;
 import generation.com.BackendYumYum.Model.Category;
-import generation.com.BackendYumYum.Service.Impl.CategoryService;
+import generation.com.BackendYumYum.Service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,17 +18,17 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @PostMapping("/save")
-    public ResponseEntity<Category> saveCategory (@RequestBody Category category) {
+    public ResponseEntity<CategoryDTO> saveCategory (@RequestBody Category category) {
         return ResponseEntity.ok(categoryService.createCategory(category));
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> getAllCategories () {
+    public ResponseEntity<List<CategoryDTO>> getAllCategories () {
         return ResponseEntity.ok(categoryService.listCategories());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Category>> getCategoryById (@PathVariable Long id) {
+    public ResponseEntity<Optional<CategoryDTO>> getCategoryById (@PathVariable Long id) {
         return ResponseEntity.ok(categoryService.findCategoryById(id));
     }
 

@@ -1,13 +1,15 @@
 package generation.com.BackendYumYum.Controller;
 
 import generation.com.BackendYumYum.DTO.CartDTO;
+import generation.com.BackendYumYum.DTO.ProductDTO;
 import generation.com.BackendYumYum.Model.Cart;
-import generation.com.BackendYumYum.Service.Impl.CartService;
+import generation.com.BackendYumYum.Service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -19,7 +21,7 @@ public class CartController {
 
 
     @PostMapping
-    public ResponseEntity<Cart> saveCart (@RequestBody Cart cart){
+    public ResponseEntity<CartDTO> saveCart (@RequestBody Cart cart){
         return ResponseEntity.ok(cartService.createCart(cart));
     }
 
@@ -28,4 +30,13 @@ public class CartController {
         return cartService.listCarts();
     }
 
+   @GetMapping("/products/{userId}")
+    public List<ProductDTO> getProductsByUserId (@PathVariable Long userId){
+        return cartService.listProductsByUserId(userId);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<CartDTO>> getCartById(@PathVariable Long id){
+        return ResponseEntity.ok(cartService.findCartById(id));
+    }
 }

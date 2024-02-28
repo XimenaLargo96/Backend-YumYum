@@ -36,6 +36,5 @@ public class User {
     private String role;
 
     @OneToMany(cascade = CascadeType.ALL , mappedBy = "user")
-    @JsonIgnore
     private List<Cart> carts;
 }

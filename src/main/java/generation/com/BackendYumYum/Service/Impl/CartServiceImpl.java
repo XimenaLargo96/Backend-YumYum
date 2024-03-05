@@ -5,6 +5,7 @@ import generation.com.BackendYumYum.DTO.ProductDTO;
 import generation.com.BackendYumYum.Model.Cart;
 import generation.com.BackendYumYum.Model.Product;
 import generation.com.BackendYumYum.Repository.CartRepository;
+import generation.com.BackendYumYum.Service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CartServiceImpl implements generation.com.BackendYumYum.Service.CartService {
+public class CartServiceImpl implements CartService {
 
     private final CartRepository cartRepository;
 
@@ -56,15 +57,15 @@ public class CartServiceImpl implements generation.com.BackendYumYum.Service.Car
     }
 
     @Override
-    public List<ProductDTO> listProductsByUserId(Long userId) {
-        List<Product> products = cartRepository.findProductsByUserId(userId);
-        List<ProductDTO> productsDTO = new ArrayList<>();
-        if (products.size() > 0){
-            for (Product product : products) {
-                ProductDTO productDTO = conversionService.convert(product , ProductDTO.class);
-                productsDTO.add(productDTO);
+    public List<CartDTO> listProductsByUserId(Long userId) {
+        List<Cart> carts = cartRepository.findProductsByUserId(userId);
+        List<CartDTO> cartsDTO = new ArrayList<>();
+        if (carts.size() > 0){
+            for (Cart cart : carts) {
+                CartDTO cartDTO = conversionService.convert(cart , CartDTO.class);
+                cartsDTO.add(cartDTO);
             }
-            return productsDTO;
+            return cartsDTO;
         }else {
             throw new RuntimeException("El usuario no tiene productos en su carrito");
         }

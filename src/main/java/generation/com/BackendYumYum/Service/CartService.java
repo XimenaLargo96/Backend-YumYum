@@ -11,6 +11,6 @@ public interface CartService{
     public CartDTO createCart (Cart cart);
     public List<CartDTO> listCarts ();
     public Optional<CartDTO> findCartById (Long id);
-    public List<ProductDTO> listProductsByUserId(Long userId);
+    public List<CartDTO> listProductsByUserId(Long userId);
 
 }

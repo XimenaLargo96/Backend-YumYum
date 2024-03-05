@@ -15,6 +15,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/carts")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 public class CartController {
 
     private final CartService cartService;
@@ -31,7 +32,7 @@ public class CartController {
     }
 
    @GetMapping("/products/{userId}")
-    public List<ProductDTO> getProductsByUserId (@PathVariable Long userId){
+    public List<CartDTO> getProductsByUserId (@PathVariable Long userId){
         return cartService.listProductsByUserId(userId);
     }
 

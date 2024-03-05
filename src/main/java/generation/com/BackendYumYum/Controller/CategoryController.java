@@ -1,6 +1,7 @@
 package generation.com.BackendYumYum.Controller;
 
 import generation.com.BackendYumYum.DTO.CategoryDTO;
+import generation.com.BackendYumYum.DTO.ProductDTO;
 import generation.com.BackendYumYum.Model.Category;
 import generation.com.BackendYumYum.Service.CategoryService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/categories")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -30,6 +32,11 @@ public class CategoryController {
     @GetMapping("/{id}")
     public ResponseEntity<Optional<CategoryDTO>> getCategoryById (@PathVariable Long id) {
         return ResponseEntity.ok(categoryService.findCategoryById(id));
+    }
+
+    @GetMapping("/products/{idCategory}")
+    public ResponseEntity<List<ProductDTO>> getProductsByCategory(@PathVariable Long idCategory){
+        return ResponseEntity.ok(categoryService.findProductsByCategory(idCategory));
     }
 
 }

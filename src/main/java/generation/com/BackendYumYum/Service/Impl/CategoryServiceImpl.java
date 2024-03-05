@@ -1,7 +1,9 @@
 package generation.com.BackendYumYum.Service.Impl;
 
 import generation.com.BackendYumYum.DTO.CategoryDTO;
+import generation.com.BackendYumYum.DTO.ProductDTO;
 import generation.com.BackendYumYum.Model.Category;
+import generation.com.BackendYumYum.Model.Product;
 import generation.com.BackendYumYum.Repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.convert.ConversionService;
@@ -46,6 +48,23 @@ public class CategoryServiceImpl implements generation.com.BackendYumYum.Service
             return searchedCategory.map(category -> conversionService.convert(category , CategoryDTO.class));
         }
         throw new RuntimeException("No existe esa categoria");
+    }
+
+    @Override
+    public List<ProductDTO> findProductsByCategory(Long categoryId) {
+        List<Product> productsByCategory =categoryRepository.findProductsByCategoryId(categoryId);
+        List<ProductDTO> productsDTO = new ArrayList<>();
+
+        if (productsByCategory.size() > 0){
+            for (Product product : productsByCategory) {
+                ProductDTO productDTO = conversionService.convert(product , ProductDTO.class);
+                productsDTO.add(productDTO);
+            }
+            return productsDTO;
+        }
+        else {
+            throw new RuntimeException("No hay productos en la categoria");
+        }
     }
 
 }

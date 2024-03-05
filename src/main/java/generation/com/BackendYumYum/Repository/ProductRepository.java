@@ -11,4 +11,7 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product , Long> {
     @Query("FROM Product p ORDER BY p.price")
     List<Product> findAllOrderByPrice();
+
+    @Query("FROM Product p ORDER BY p.price DESC")
+    List<Product> findAllOrderByPriceDesc();
 }

@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ProductService {
-    public ProductDTO createProduct (Product product);
-    public List<ProductDTO> listProducts ();
+    public ProductDTO createProduct(Product product);
+
+    public List<ProductDTO> listProducts();
+
     public Optional<ProductDTO> findProductById(Long id);
+
     List<ProductDTO> listProductsByPrice();
 
+    List<ProductDTO> listProductsByPriceDesc();
 }

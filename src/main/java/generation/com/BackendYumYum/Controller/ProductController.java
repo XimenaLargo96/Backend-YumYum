@@ -38,6 +38,9 @@ public class ProductController {
     public ResponseEntity<List<ProductDTO>> getProductsByPrice(){
         return ResponseEntity.ok(productService.listProductsByPrice());
     }
-
+    @GetMapping("/price/desc")
+    public ResponseEntity<List<ProductDTO>> getProductsByPriceDesc(){
+        return ResponseEntity.ok(productService.listProductsByPriceDesc());
+    }
 
 }

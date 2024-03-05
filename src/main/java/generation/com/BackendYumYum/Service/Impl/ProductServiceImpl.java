@@ -51,4 +51,21 @@ public class ProductServiceImpl implements generation.com.BackendYumYum.Service.
             throw new RuntimeException("El producto no existe");
         }
     }
+
+    @Override
+    public List<ProductDTO> listProductsByPrice() {
+        List<Product> productsByPrice = productRepository.findAllOrderByPrice();
+        List<ProductDTO> productsDTO = new ArrayList<>();
+
+        if (productsByPrice.size() > 0){
+            for (Product product : productsByPrice) {
+                ProductDTO productDTO = conversionService.convert(product , ProductDTO.class);
+                productsDTO.add(productDTO);
+            }
+            return productsDTO;
+        }
+        else {
+            throw new RuntimeException("Error al listar productos por precio");
+        }
+    }
 }

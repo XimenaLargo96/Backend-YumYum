@@ -30,12 +30,6 @@ public class Product {
     private double price;
 
     @Column
-    private boolean has_color;
-
-    @Column
-    private String colors;
-
-    @Column
     private String url_img;
 
     @ManyToOne

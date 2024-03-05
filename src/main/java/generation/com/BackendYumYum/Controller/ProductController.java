@@ -13,6 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 public class ProductController {
 
 
@@ -31,6 +32,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<Optional<ProductDTO>> getProductById(@PathVariable Long id) {
         return ResponseEntity.ok(productService.findProductById(id));
+    }
+
+    @GetMapping("/price")
+    public ResponseEntity<List<ProductDTO>> getProductsByPrice(){
+        return ResponseEntity.ok(productService.listProductsByPrice());
     }
 
 

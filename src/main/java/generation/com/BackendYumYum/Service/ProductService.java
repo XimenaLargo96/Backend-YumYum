@@ -10,5 +10,6 @@ public interface ProductService {
     public ProductDTO createProduct (Product product);
     public List<ProductDTO> listProducts ();
     public Optional<ProductDTO> findProductById(Long id);
+    List<ProductDTO> listProductsByPrice();
 
 }

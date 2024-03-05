@@ -15,6 +15,7 @@ public class ProductToProductDTOConverter implements Converter<Product , Product
         ProductDTO productDTO = new ProductDTO();
         productDTO.setIdproducts(product.getIdproducts());
         productDTO.setName(product.getName());
+        productDTO.setDescription(product.getDescription());
         productDTO.setPrice(product.getPrice());
         productDTO.setUrl_img(product.getUrl_img());
         return productDTO;

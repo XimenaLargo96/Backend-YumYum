@@ -15,7 +15,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/v1/carts")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://127.0.0.1:5501")
 public class CartController {
 
     private final CartService cartService;
